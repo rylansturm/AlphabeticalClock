@@ -1,7 +1,7 @@
 
 let alphabeticTimeIndices = null;
 
-export async function loadAlphabeticTimeIndices(filename = 'alphanums_out.json') {
+export async function loadAlphabeticTimeIndices(filename = './src/alphanums_out.json') {
     try {
         const response = await fetch(filename);
         if (!response.ok) {

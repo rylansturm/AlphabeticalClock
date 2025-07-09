@@ -11,13 +11,13 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const plane = new THREE.PlaneGeometry(4, 4);
+const plane = new THREE.PlaneGeometry(8, 8);
 const material = new THREE.MeshStandardMaterial({ color: 0xaaaaaa, side: THREE.DoubleSide });
 const mesh = new THREE.Mesh(plane, material);
 mesh.position.z = -1
 scene.add(mesh);
 
-const alphabeticTimeIndices = loadAlphabeticTimeIndices('alphanums_out.json');
+const alphabeticTimeIndices = loadAlphabeticTimeIndices('./src/alphanums_out.json');
 const transitionDuration = 0.5;
 let lastUpdateTime = performance.now();
 let hourFrom = 0, hourTo = 0;
@@ -49,7 +49,7 @@ updateTimeTargets();
 
 const loader = new GLTFLoader();
 let clockBody = null
-loader.load('Body.glb',
+loader.load('./public/Body.glb',
     function (gltf) {
         clockBody = gltf.scene;
         clockBody.position.set(0, 0, 0);
@@ -65,7 +65,7 @@ loader.load('Body.glb',
     }
 );
 let clockFace = null
-loader.load('Face.glb',
+loader.load('./public/Face.glb',
     function (gltf) {
         clockFace = gltf.scene;
         clockFace.position.set(0, 0, 0);
@@ -81,7 +81,7 @@ loader.load('Face.glb',
     }
 );
 let clockHourHand = null
-loader.load('HourHand.glb',
+loader.load('./public/HourHand.glb',
     function (gltf) {
         clockHourHand = gltf.scene;
         clockHourHand.position.set(0, 0, 0);
@@ -97,7 +97,7 @@ loader.load('HourHand.glb',
     }
 );
 let clockMinuteHand = null
-loader.load('MinuteHand.glb',
+loader.load('./public/MinuteHand.glb',
     function (gltf) {
         clockMinuteHand = gltf.scene;
         clockMinuteHand.position.set(0, 0, 0);
@@ -113,7 +113,7 @@ loader.load('MinuteHand.glb',
     }
 );
 let clockSecondHand = null
-loader.load('SecondHand.glb',
+loader.load('./public/SecondHand.glb',
     function (gltf) {
         clockSecondHand = gltf.scene;
         clockSecondHand.position.set(0, 0, 0);

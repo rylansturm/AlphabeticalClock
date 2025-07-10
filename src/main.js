@@ -25,7 +25,6 @@ let minuteFrom = 0, minuteTo = 0;
 let secondFrom = 0, secondTo = 0;
 
 function updateTimeTargets() {
-    const now = new Date();
     const hour = TFUNC.getCurrentHour12();
     const minute = TFUNC.getCurrentMinute();
     const second = TFUNC.getCurrentSecond();
@@ -41,6 +40,10 @@ function updateTimeTargets() {
     hourTo = -TFUNC.getHourAngle(alphaHour);
     minuteTo = -TFUNC.getMinuteAngle(alphaMinute);
     secondTo = -TFUNC.getSecondAngle(alphaSecond);
+
+    console.log('hours:', hour, 'index:', alphaHour, 'angle:', -(hourTo / (2 * Math.PI) * 360));
+    console.log('minutes:', minute, 'index:', alphaMinute, 'angle:', -(minuteTo / (2 * Math.PI) * 360));
+    console.log('seconds:', second, 'index:', alphaSecond, 'angle:', -(secondTo / (2 * Math.PI) * 360));
 
     lastUpdateTime = performance.now();
 }

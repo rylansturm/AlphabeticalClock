@@ -2,7 +2,7 @@ export function getCurrentHour12() {
   const now = new Date();
   let hour = now.getHours(); // 0-23
   hour = hour % 12;
-  return hour;
+  return (hour % 12 === 0) ? 12 : hour;
 }
 
 export function getCurrentMinute() {
